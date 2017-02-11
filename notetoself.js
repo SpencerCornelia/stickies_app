@@ -4,7 +4,7 @@ function init() {
 	var button = document.getElementById("add_button");
 	button.onClick = createSticky;
 
-	var stickiesArray = localStorage["stickiesArray"];
+	var stickiesArray = getStickiesArray();
 
 	if (!stickiesArray) {
 		stickiesArray = [];
@@ -45,7 +45,7 @@ function init() {
 			stickiesArray = [];
 			localStorage.setItem("stickiesArray", JSON.stringify(stickiesArray));
 		} else {
-			stickiesArray.JSONParse(stickiesArray);
+			stickiesArray = JSON.parse(stickiesArray);
 		}
 
 		return stickiesArray;
